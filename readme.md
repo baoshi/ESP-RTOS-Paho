@@ -1,6 +1,6 @@
 **MQTT client with ESP8266 RTOS SDK**
 
-This project contains ESP8266 port of the C client in Eclipse Paho project (http://www.eclipse.org/paho/) 
+This project contains ESP8266 port of the embedded C client in Eclipse Paho project (http://www.eclipse.org/paho/) 
 It uses ESP8266 RTOS SDK available at https://github.com/espressif/ESP8266_RTOS_SDK
 
 **Features**
