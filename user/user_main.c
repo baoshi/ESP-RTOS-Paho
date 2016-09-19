@@ -60,8 +60,8 @@ LOCAL void ICACHE_FLASH_ATTR dbgpin_init(void)
 #endif
 
 
-#define STA_SSID    "SSSSS"
-#define STA_PASSWORD  "XXXXX"
+#define STA_SSID    "huang"
+#define STA_PASSWORD  "sh19901222"
 
 
 LOCAL void ICACHE_FLASH_ATTR wifi_task(void *pvParameters)
@@ -165,7 +165,7 @@ LOCAL void ICACHE_FLASH_ATTR topic_received(MessageData* md)
 
 
 // testing mosquitto server
-#define MQTT_HOST "192.168.0.99"
+#define MQTT_HOST "192.168.2.163"
 #define MQTT_PORT 1883
 #define MQTT_USER ""
 #define MQTT_PASS ""
