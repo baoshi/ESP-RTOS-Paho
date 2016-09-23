@@ -23,13 +23,11 @@ GEN_BINS= eagle.app.v6.bin
 SPECIAL_MKTARGETS=$(APP_MKTARGETS)
 SUBDIRS=    \
 	user    \
-	driver	\
-	paho
+       driver	\
+	   paho
+	
 
 endif # } PDIR
-
-SDK_PATH=/home/huang/workspace/nodemcu/esp8266_exp/esp8266_rtos_sdk
-BIN_PATH=/home/huang/workspace/nodemcu/esp8266_exp/esp8266_rtos_sdk/bin
 
 LDDIR = $(SDK_PATH)/ld
 
@@ -51,7 +49,7 @@ endif
 
 COMPONENTS_eagle.app.v6 = \
 	user/libuser.a  \
-	driver/libdriver.a \
+	driver/libdriver.a\
 	paho/libpaho.a
 
 LINKFLAGS_eagle.app.v6 = \
@@ -129,7 +127,7 @@ DDEFINES +=				\
 # Required for each makefile to inherit from the parent
 #
 
-INCLUDES := $(INCLUDES) -I $(PDIR)include -I $(PDIR)paho
+INCLUDES := $(INCLUDES) -I $(PDIR)include -I $(PDIR)include/driver -I $(PDIR)paho
 sinclude $(SDK_PATH)/Makefile
 
 .PHONY: FORCE

@@ -11,6 +11,7 @@ export BIN_PATH=~/esp8266_bin
 export SDK_PATH=/home/huang/workspace/nodemcu/esp8266_exp/esp8266_rtos_sdk
 export BIN_PATH=/home/huang/workspace/nodemcu/esp8266_exp/esp8266_rtos_sdk/bin
 
+
 echo "gen_misc.sh version 20150911"
 echo ""
 
@@ -33,8 +34,7 @@ else
 fi
 
 echo "Please check SDK_PATH & BIN_PATH, enter (Y/y) to continue:"
-read input
-
+input=Y 
 if [[ $input != Y ]] && [[ $input != y ]]; then
     exit
 fi
