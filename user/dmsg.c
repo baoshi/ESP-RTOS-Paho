@@ -55,11 +55,13 @@ void ICACHE_FLASH_ATTR dmsg_init(void)
     os_install_putc1((void *)(void *)uart1_putchar);
 #elif (DMSG_UART == 0)
     uart_param_t uart_param;
-    uart_param.uart_baud_rate = UART_BAUD_RATE_74880;
+//    uart_param.uart_baud_rate = UART_BAUD_RATE_74880;
+    uart_param.uart_baud_rate = UART_BAUD_RATE_115200;
     uart_param.uart_xfer_bit = UART_XFER_8_BIT;
     uart_param.uart_parity_mode = UART_PARITY_NONE;
     uart_param.uart_stop_bit = UART_1_STOP_BIT;
     uart_param.uart_flow_ctrl = UART_NONE_FLOW_CTRL;
+	uart0_init(&uart_param);
     os_install_putc1((void *)(void *)uart0_putchar);
 #else
     #error "DMSG_UART must be 0 or 1"
