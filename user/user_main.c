@@ -60,11 +60,18 @@ LOCAL void ICACHE_FLASH_ATTR dbgpin_init(void)
 #endif
 
 
-#define STA_SSID    "SSSSS"
-#define STA_PASSWORD  "XXXXX"
+#define STA_SSID    "huang"
+#define STA_PASSWORD  "sh19901222"
 
 
 LOCAL void ICACHE_FLASH_ATTR wifi_task(void *pvParameters)
+{
+	while(1){
+		dmsg_puts("WiFi: Connecting to WiFi\n");
+		vTaskDelay(1000 / portTICK_RATE_MS);
+	}
+}
+LOCAL void ICACHE_FLASH_ATTR wifi_task2(void *pvParameters)
 {
     uint8_t status;
 
@@ -165,7 +172,7 @@ LOCAL void ICACHE_FLASH_ATTR topic_received(MessageData* md)
 
 
 // testing mosquitto server
-#define MQTT_HOST "192.168.0.99"
+#define MQTT_HOST "192.168.2.163"
 #define MQTT_PORT 1883
 #define MQTT_USER ""
 #define MQTT_PASS ""
@@ -266,6 +273,7 @@ void ICACHE_FLASH_ATTR user_init(void)
     xSemaphoreTake(wifi_alive, 0);  // take the default semaphore
     xTaskCreate(beat_task, "beat", 256, NULL, tskIDLE_PRIORITY + 3, NULL);
     xTaskCreate(mqtt_task, "mqtt", 1024, NULL, tskIDLE_PRIORITY + 2, NULL);
-    xTaskCreate(wifi_task, "wifi", 256, NULL, tskIDLE_PRIORITY + 1, NULL);
+//    xTaskCreate(wifi_task, "loop", 256, NULL, tskIDLE_PRIORITY + 1, NULL);
+    xTaskCreate(wifi_task2, "wifi", 256, NULL, tskIDLE_PRIORITY + 1, NULL);
 }
 
